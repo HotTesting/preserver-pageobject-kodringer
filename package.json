@@ -11,5 +11,9 @@
 
   "dependencies":{
     "protractor": "^4.0.10"
-  }
+  },
+  
+  "devDependencies": {
+    "jasmine2-reporter": "^0.2.0"
+  } 
 }

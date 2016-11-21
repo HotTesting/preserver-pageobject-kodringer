@@ -2,16 +2,14 @@
 let NotesPage = require('./pageObjects/NotesPage.js').NotesPage
 
 //Просто наш базовый URL для работы
-let URL = 'http://www.hiteshbalar.com/preserver/notes'
+//let URL = 'http://www.hiteshbalar.com/preserver/notes'
 
-describe('Preserver tests', function () {
+describe('Preserver tests create', function () {
     let notesPage = new NotesPage()
 
     beforeEach(function () {
-      browser.get(URL)
+      browser.get('./notes')
       browser.sleep(5000)
-
-      browser.params.users[1]
     })
 
     //This function will be executed after each IT block in this DESCRIBE block
@@ -42,6 +40,7 @@ describe('Preserver tests', function () {
     it('should be created when title and body provided', function () {
         
         notesPage.createNote('Test', 'Test')
+        browser.sleep(2000)
         expect(notesPage.getNotes().count()).toBe(1,
             'Notes count should be 1 after created')
     })
@@ -49,6 +48,7 @@ describe('Preserver tests', function () {
     it('should be created when only title provided', function () {
         
         notesPage.createNote('Test', '')
+        browser.sleep(2000)
         expect(notesPage.getNotes().count()).toBe(1,
             'Notes count should be 1 after created')
     })
@@ -56,6 +56,7 @@ describe('Preserver tests', function () {
     it('should be created when only body provided', function () {
 
         notesPage.createNote('', 'Test')
+        browser.sleep(2000)
         expect(notesPage.getNotes().count()).toBe(1,
             'Notes count should be 1 after created')
     })
@@ -63,6 +64,7 @@ describe('Preserver tests', function () {
     it('should NOT be created when nothing provided', function () {
 
         notesPage.createNote('', '')
+        browser.sleep(2000)
         expect(notesPage.getNotes().count()).toBe(0,
             'Notes count should be 0')
     })

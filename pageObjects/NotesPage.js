@@ -19,6 +19,16 @@ class NotesPage {
     getNotes() {
         return $$('.grid-container .grid-item')
     }
+
+    archive(){
+
+       $(`a[title='Archive']`).click()        
+    }
+
+    delete() {
+
+       $(`a[title='Delete']`).click()
+    }
 }
 
 // Экспортим объект чтобы он был доступен в других файлах
